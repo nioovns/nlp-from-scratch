@@ -4,9 +4,9 @@ from PyQt5.QtWidgets import (
     QVBoxLayout, QLabel, QFileDialog, QGroupBox, QHBoxLayout
 )
 from PyQt5.QtGui import QFont
-from TextProcessing import process_text
-from Classification import ClassificationModel
-from IR import IRModel
+from text_processing import process_text
+from classification import ClassificationModel
+from information_retrieval import IRModel
 
 class NLP_GUI(QWidget):
     def __init__(self):

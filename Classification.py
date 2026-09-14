@@ -1,7 +1,7 @@
 import os
 import math
 from collections import Counter
-from TextProcessing import (
+from text_processing import (
     read_file, tokenize, lowercase,
     remove_stopwords, clean_text, word_frequency
 )
