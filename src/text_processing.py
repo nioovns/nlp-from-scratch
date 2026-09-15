@@ -1,7 +1,9 @@
 import re
 import os
 from nltk.stem import PorterStemmer
-
+from src.file_handler import (
+    read_file, write_file
+)
 STOP_WORDS = set([
     "a","an","the","and","or","but","if","while","with","without",
     "of","at","by","for","from","to","in","on","up","down","over","under",
@@ -12,13 +14,11 @@ STOP_WORDS = set([
     "his","its","our","their",
     "what","which","who","whom","whose","when","where","why","how"
     ])
-
 OUTPUT_DIR = "./processed_output"
+
+
 stemmer = PorterStemmer()
 
-def read_file(file_path):
-    with open(file_path, 'r', encoding='utf-8', errors="ignore") as f:
-        return f.read()
 
 def clean_text(text):
     text = re.sub(r'http\S+|www\S+', '', text) # links and URLs 
@@ -52,17 +52,6 @@ def stemming(tokens):
 def remove_stopwords(tokens):
     return [token for token in tokens if token not in STOP_WORDS]
 
-def write_file(text, file_path=None, output_dir=OUTPUT_DIR, base_name="output"):
-    if file_path is None:
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        file_path = os.path.join(output_dir, f"{base_name}.txt")
-    else:
-        dir_name = os.path.dirname(file_path)
-        if dir_name and not os.path.exists(dir_name):
-            os.makedirs(dir_name)
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(text)
 
 def process_text(FILE_PATH):
     text = read_file(FILE_PATH)

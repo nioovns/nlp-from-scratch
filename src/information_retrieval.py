@@ -1,9 +1,12 @@
 import os
 import math
 from collections import Counter
-from text_processing import (
-    read_file, tokenize, lowercase, 
+from src.text_processing import (
+    tokenize, lowercase, 
     remove_stopwords, clean_text
+)
+from src.file_handler import (
+    read_file
 )
 
 def preprocess(text):
