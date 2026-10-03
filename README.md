@@ -213,7 +213,7 @@ The application provides a simple PyQt5 interface with four main operations:
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/nioovns/nlp-from-scratch.git
 cd NLP-Project
 ```
 
